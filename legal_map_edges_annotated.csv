@@ -1,0 +1,102 @@
+source,target,domain,source_annotation,target_annotation,edge_color
+Voting Rights Act,Voting Rights Act Amendments,Voting,Landmark,Expansion,gray
+National Voter Registration Act,Bipartisan Campaign Reform Act (McCain–Feingold),Voting,Expansion,Expansion,green
+Help America Vote Act,Voting Rights Act Amendments,Voting,Expansion,Expansion,green
+Shelby County v. Holder,EO 13799: Presidential Advisory Commission on Election Integrity,Voting,Reversal,Reversal,red
+Brnovich v. DNC,Freedom to Vote Act,Voting,Reversal,Proposed,gray
+John Lewis Voting Rights Advancement Act,Brnovich v. DNC,Voting,Proposed,Reversal,gray
+EO 14019,EO 13985: Advancing Racial Equity,Voting,Expansion,Expansion,green
+Roe v. Wade,Hyde Amendment,Repro,Landmark,Reversal,gray
+Planned Parenthood v. Casey,Freedom of Access to Clinic Entrances Act,Repro,Expansion,Expansion,green
+Hyde Amendment,Planned Parenthood v. Casey,Repro,Reversal,Expansion,orange
+Gonzales v. Carhart,Whole Woman’s Health v. Hellerstedt,Repro,Reversal,Expansion,orange
+Dobbs v. Jackson Women’s Health,EO 14076: Protecting Access to Reproductive Healthcare,Repro,Reversal,Expansion,orange
+Lawrence v. Texas,Matthew Shepard and James Byrd Jr. Hate Crimes Prevention Act,LGBTQ+,Landmark,Expansion,gray
+United States v. Windsor,EO 13672: Prohibiting Discrimination,LGBTQ+,Expansion,Expansion,green
+Obergefell v. Hodges,EEOC v. Harris Funeral Homes,LGBTQ+,Landmark,Expansion,gray
+Bostock v. Clayton County,Executive Order 13985: Equity Across Federal Government,LGBTQ+,Expansion,Expansion,green
+EO 13672,Obergefell v. Hodges,LGBTQ+,Expansion,Landmark,gray
+Fair Sentencing Act,Death in Custody Reporting Act,Justice,Expansion,Expansion,green
+First Step Act,Police Accountability Act,Justice,Expansion,Proposed,gray
+Civil Rights Act of 1991,Violence Against Women Act,Justice,Expansion,Expansion,green
+Milliken v. Bradley,Plyler v. Doe,Justice,Reversal,Expansion,orange
+Plyler v. Doe,Sentencing Reform Act,Justice,Expansion,Landmark,gray
+Americans with Disabilities Act,Telecommunications Act,Disability,Landmark,Expansion,gray
+ADA Amendments Act,ADA Integration Mandate Enforcement,Disability,Expansion,Expansion,green
+Individuals with Disabilities Education Act,ADA Amendments Act,Disability,Expansion,Expansion,green
+Voting Accessibility for the Elderly and Handicapped Act,Air Carrier Access Act,Disability,Expansion,Expansion,green
+Clean Air Act,Clean Water Act,Environment,Landmark,Landmark,gray
+Clean Water Act,Endangered Species Act,Environment,Landmark,Landmark,gray
+Endangered Species Act,"Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA)",Environment,Landmark,Landmark,gray
+National Environmental Policy Act,Clean Air Act,Environment,Landmark,Landmark,gray
+Paris Agreement Reentry,Executive Order 14008: Tackling the Climate Crisis,Environment,Expansion,Expansion,green
+Inflation Reduction Act,EO 14096: Revitalizing Environmental Justice,Environment,Expansion,Expansion,green
+Uniformed and Overseas Citizens Absentee Voting Act,National Voter Registration Act,Voting,Expansion,Expansion,green
+EO 13799: Presidential Advisory Commission on Election Integrity,For the People Act,Voting,Reversal,Proposed,gray
+Whole Woman’s Health v. Hellerstedt,June Medical Services v. Russo,Repro,Expansion,Expansion,green
+June Medical Services v. Russo,Title IX Final Rule,Repro,Expansion,Reversal,orange
+EO 13988: Preventing Discrimination on Basis of Gender Identity,EO 13988: Gender Identity/Orientation Discrimination,LGBTQ+,Expansion,Expansion,green
+Matthew Shepard and James Byrd Jr. Hate Crimes Prevention Act,GLAD v. United States,LGBTQ+,Expansion,Expansion,green
+Sentencing Reform Act,Bail Reform Act,Justice,Landmark,Reversal,gray
+EO 13166: Improving Access to Services for Persons with Limited English Proficiency,USA PATRIOT Act,Justice,Expansion,Reversal,orange
+Air Carrier Access Act,Fair Housing Amendments Act,Disability,Expansion,Expansion,green
+Freedom of Access to Clinic Entrances Act,Gonzales v. Carhart,Repro,Expansion,Reversal,orange
+"Don't Ask, Don't Tell Repeal Act",United States v. Windsor,LGBTQ+,Expansion,Expansion,green
+EEOC v. Harris Funeral Homes,Bostock v. Clayton County,LGBTQ+,Expansion,Expansion,green
+EO 14004: Enabling All Qualified Americans to Serve,EO 14021: Preventing and Combating Discrimination,LGBTQ+,Expansion,Expansion,green
+Omnibus Crime Control and Safe Streets Act,Juvenile Justice and Delinquency Prevention Act,Justice,Landmark,Landmark,gray
+Crime Control Act,Civil Rights Act of 1991,Justice,Expansion,Expansion,green
+Violence Against Women Act,Violent Crime Control and Law Enforcement Act,Justice,Expansion,Reversal,orange
+Second Chance Act,Fair Sentencing Act,Justice,Expansion,Expansion,green
+Rehabilitation Act,Voting Accessibility for the Elderly and Handicapped Act,Disability,Landmark,Expansion,gray
+Telecommunications Act,Assistive Technology Act,Disability,Expansion,Expansion,green
+Voting Rights Act Amendments,Federal Election Campaign Act,Voting,Expansion,Landmark,gray
+Voting Rights Act Amendments,Voting Rights Act Amendments,Voting,Expansion,Expansion,green
+Voting Rights Act Amendments,Uniformed and Overseas Citizens Absentee Voting Act,Voting,Expansion,Expansion,green
+Voting Rights Act Amendments,Shelby County v. Holder,Voting,Expansion,Reversal,orange
+Executive Order 13087,Lawrence v. Texas,LGBTQ+,Expansion,Landmark,gray
+"Don't Ask, Don't Tell",Executive Order 13087,LGBTQ+,Reversal,Expansion,orange
+EO 14076: Protecting Access to Reproductive Healthcare,EO 14079: Securing Access to Reproductive and Other Healthcare Services,Repro,Expansion,Expansion,green
+Developmental Disabilities Assistance and Bill of Rights Act,Individuals with Disabilities Education Act,Disability,Expansion,Expansion,green
+Ticket to Work and Work Incentives Improvement Act,Developmental Disabilities Assistance and Bill of Rights Act,Disability,Expansion,Expansion,green
+Global Change Research Act,Energy Policy Act,Environment,Expansion,Expansion,green
+Bail Reform Act,Crime Control Act,Justice,Reversal,Expansion,orange
+USA PATRIOT Act,Second Chance Act,Justice,Reversal,Expansion,orange
+EO 13107: Human Rights Treaties Implementation,EO 13166: Improving Access to Services for Persons with Limited English Proficiency,Justice,Expansion,Expansion,green
+"Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA)",Montreal Protocol Implementation Act,Environment,Landmark,Expansion,gray
+Energy Policy Act,Clean Power Plan,Environment,Expansion,Expansion,green
+Executive Order 14008: Tackling the Climate Crisis,Inflation Reduction Act,Environment,Expansion,Expansion,green
+Assistive Technology Act,Section 508 Amendment (Tech Accessibility),Disability,Expansion,Expansion,green
+Fair Housing Amendments Act,Americans with Disabilities Act,Disability,Expansion,Landmark,gray
+Title X Family Planning Program,Roe v. Wade,Repro,Expansion,Landmark,gray
+EO 13988: Gender Identity/Orientation Discrimination,California v. Texas,LGBTQ+,Expansion,Expansion,green
+For the People Act,John Lewis Voting Rights Advancement Act,Voting,Proposed,Proposed,gray
+Freedom to Vote Act,EO 14019: Promoting Access to Voting,Voting,Proposed,Expansion,gray
+California v. Texas,EO 14004: Enabling All Qualified Americans to Serve,LGBTQ+,Expansion,Expansion,green
+EO 14075: Advancing LGBTQI+ Equality,Respect for Marriage Act,LGBTQ+,Expansion,Expansion,green
+Death in Custody Reporting Act,EO 13809: Rescinding DOJ Consent Decrees,Justice,Expansion,Reversal,orange
+Juvenile Justice and Delinquency Prevention Act,Milliken v. Bradley,Justice,Landmark,Reversal,gray
+EO 14079: Securing Access to Reproductive and Other Healthcare Services,Biden HHS Guidance on Emergency Abortions,Repro,Expansion,Expansion,green
+Workforce Innovation and Opportunity Act,Every Student Succeeds Act (with IDEA references),Disability,Expansion,Expansion,green
+Montreal Protocol Implementation Act,Global Change Research Act,Environment,Expansion,Expansion,green
+EO 13834: Efficient Federal Operations,Affordable Clean Energy Rule,Environment,Reversal,Reversal,red
+EO 14019: Promoting Access to Voting,EO 14019,Voting,Expansion,Expansion,green
+GLAD v. United States,"Don't Ask, Don't Tell Repeal Act",LGBTQ+,Expansion,Expansion,green
+EO 13672: Prohibiting Discrimination,EO 13672,LGBTQ+,Expansion,Expansion,green
+Police Accountability Act,George Floyd Justice in Policing Act,Justice,Proposed,Proposed,gray
+George Floyd Justice in Policing Act,EO 14092: Clemency and Second Chances,Justice,Proposed,Expansion,gray
+Title IX Final Rule,Dobbs v. Jackson Women’s Health,Repro,Reversal,Reversal,red
+Biden HHS Guidance on Emergency Abortions,EO 14087: Data Protections for Reproductive Health,Repro,Expansion,Expansion,green
+Section 508 Amendment (Tech Accessibility),Ticket to Work and Work Incentives Improvement Act,Disability,Expansion,Expansion,green
+ADA Integration Mandate Enforcement,Workforce Innovation and Opportunity Act,Disability,Expansion,Expansion,green
+Federal Election Campaign Act,Voting Rights Act Amendments,Voting,Landmark,Expansion,gray
+Bipartisan Campaign Reform Act (McCain–Feingold),Help America Vote Act,Voting,Expansion,Expansion,green
+Executive Order 13985: Equity Across Federal Government,EO 13988: Preventing Discrimination on Basis of Gender Identity,LGBTQ+,Expansion,Expansion,green
+EO 14092: Clemency and Second Chances,EO 14074,Justice,Expansion,Expansion,green
+Violent Crime Control and Law Enforcement Act,EO 13107: Human Rights Treaties Implementation,Justice,Reversal,Expansion,orange
+EO 13809: Rescinding DOJ Consent Decrees,First Step Act,Justice,Reversal,Expansion,orange
+Every Student Succeeds Act (with IDEA references),21st Century Cures Act,Disability,Expansion,Expansion,green
+Clean Power Plan,EO 13693: Planning for Sustainability,Environment,Expansion,Expansion,green
+Affordable Clean Energy Rule,Paris Agreement Reentry,Environment,Reversal,Expansion,orange
+EO 13693: Planning for Sustainability,EO 13834: Efficient Federal Operations,Environment,Expansion,Reversal,orange
+EO 14021: Preventing and Combating Discrimination,EO 14075: Advancing LGBTQI+ Equality,LGBTQ+,Expansion,Expansion,green

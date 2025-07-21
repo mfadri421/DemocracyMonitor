@@ -1,0 +1,105 @@
+id,year,type,domain,annotation,MCA_1,MCA_2
+Voting Rights Act,1965,Law,Voting,Landmark,-0.5901804785707758,-0.7564393174065588
+National Voter Registration Act,1993,Law,Voting,Expansion,-0.39518164224567554,-0.5844320017927446
+Help America Vote Act,2002,Law,Voting,Expansion,-0.5899450249464628,-0.7586504872794297
+Shelby County v. Holder,2013,Court,Voting,Reversal,1.026511750067624,0.38770205825451187
+Brnovich v. DNC,2021,Court,Voting,Reversal,0.7482681165887112,-0.333547353330905
+John Lewis Voting Rights Advancement Act,2021,Law,Voting,Proposed,-0.0038385398271866124,-0.8027231809067498
+EO 14019,2021,ExecOrder,Voting,Expansion,0.6001986619132004,-1.1988952662579395
+Roe v. Wade,1973,Court,Repro,Landmark,0.6838990623433895,1.3242902058352048
+Planned Parenthood v. Casey,1992,Court,Repro,Expansion,1.5341167643220346,2.0973476032795246
+Hyde Amendment,1976,Law,Repro,Reversal,0.1137025523783317,1.1248229074418825
+Gonzales v. Carhart,2007,Court,Repro,Reversal,0.9794522419217152,1.6618864132358848
+Dobbs v. Jackson Women’s Health,2022,Court,Repro,Reversal,1.1917515472722138,1.0447507090268089
+Lawrence v. Texas,2003,Court,LGBTQ+,Landmark,1.660097963425566,0.8875542344319071
+United States v. Windsor,2013,Court,LGBTQ+,Expansion,1.4656870990259074,0.71234276996978
+Obergefell v. Hodges,2015,Court,LGBTQ+,Landmark,0.978613896621903,0.1795815263236194
+Bostock v. Clayton County,2020,Court,LGBTQ+,Expansion,1.1718110771455894,1.012953654931632
+Respect for Marriage Act,2022,Law,LGBTQ+,Expansion,0.506602334383045,-0.00833619681515837
+EO 13672,2014,ExecOrder,LGBTQ+,Expansion,0.7712685165444546,-0.5433862001674777
+Fair Sentencing Act,2010,Law,Justice,Expansion,-0.26508504865363247,0.40889279052602934
+First Step Act,2018,Law,Justice,Expansion,-0.24068183534640022,0.12968661540226745
+Civil Rights Act of 1991,1991,Law,Justice,Expansion,-0.820267823912577,0.4117209716077333
+EO 14074,2022,ExecOrder,Justice,Expansion,0.549456007431293,-0.16477847941577853
+Milliken v. Bradley,1974,Court,Justice,Reversal,0.2662644624342247,1.1330352608805143
+Plyler v. Doe,1982,Court,Justice,Expansion,0.6013717195157263,1.3809245262596395
+Americans with Disabilities Act,1990,Law,Disability,Landmark,-1.3428510908040012,0.29995257465656
+ADA Amendments Act,2008,Law,Disability,Expansion,-1.5983266263848648,0.5799572944771715
+Individuals with Disabilities Education Act,2004,Law,Disability,Expansion,-1.5977919018167257,0.5786548618616829
+Voting Accessibility for the Elderly and Handicapped Act,1984,Law,Disability,Expansion,-1.3546050974186317,0.5235866934325413
+Clean Air Act,1970,Law,Environment,Landmark,-0.546082352855936,-0.35486576568880496
+Clean Water Act,1972,Law,Environment,Landmark,-0.7488938246958426,-0.8731337844660461
+Endangered Species Act,1973,Law,Environment,Landmark,-0.5244218280096574,-0.10777507956766058
+National Environmental Policy Act,1969,Law,Environment,Landmark,-0.7488816624893372,-0.8691611024830407
+Paris Agreement Reentry,2021,ExecOrder,Environment,Expansion,0.5162023334076056,-1.2532329341035697
+Inflation Reduction Act,2022,Law,Environment,Expansion,-0.016569343080833174,-0.3873145763760565
+Uniformed and Overseas Citizens Absentee Voting Act,1986,Law,Voting,Expansion,-0.8273799784634325,-0.4129765835012889
+EO 13799: Presidential Advisory Commission on Election Integrity,2017,ExecOrder,Voting,Reversal,0.49670514964631385,-1.2784992566581166
+EO 13985: Advancing Racial Equity,2021,ExecOrder,Voting,Expansion,0.6001986619132004,-1.1988952662579395
+Whole Woman’s Health v. Hellerstedt,2016,Court,Repro,Expansion,0.7969461620972936,1.704339615691735
+June Medical Services v. Russo,2020,Court,Repro,Expansion,1.1048536336188604,1.5968647331977546
+EO 13988: Preventing Discrimination on Basis of Gender Identity,2021,ExecOrder,LGBTQ+,Expansion,1.0393740108714837,-0.8742545545426715
+Matthew Shepard and James Byrd Jr. Hate Crimes Prevention Act,2009,Law,LGBTQ+,Expansion,0.24016549498076095,-0.0873972811717178
+Sentencing Reform Act,1984,Law,Justice,Landmark,-0.9429725581702219,0.44210305017168244
+EO 13166: Improving Access to Services for Persons with Limited English Proficiency,2000,ExecOrder,Justice,Expansion,-0.13084684367485488,-0.15439598054060702
+Air Carrier Access Act,1986,Law,Disability,Expansion,-1.361020697445698,0.23287757422540764
+Freedom of Access to Clinic Entrances Act,1994,Law,Repro,Expansion,-0.1805070566250078,0.8784566922950139
+"Don't Ask, Don't Tell Repeal Act",2010,Law,LGBTQ+,Expansion,0.29609848003850653,0.1691629877754597
+EEOC v. Harris Funeral Homes,2018,Court,LGBTQ+,Expansion,1.0726083497616365,0.3591326402275426
+EO 14004: Enabling All Qualified Americans to Serve,2021,ExecOrder,LGBTQ+,Expansion,1.0393740108714837,-0.8742545545426715
+Omnibus Crime Control and Safe Streets Act,1968,Law,Justice,Landmark,-0.8207812141968542,0.4125444064524849
+Crime Control Act,1990,Law,Justice,Expansion,-0.9312185515555914,0.21846893139570117
+Violence Against Women Act,1994,Law,Justice,Expansion,-0.6747331417904178,0.5342754167794609
+Second Chance Act,2007,Law,Justice,Expansion,-0.26688049965959254,0.8485293101444871
+Rehabilitation Act,1973,Law,Disability,Landmark,-0.974066218486328,0.592416746004666
+Telecommunications Act,1996,Law,Disability,Expansion,-1.598610878740023,0.5806670093697873
+Voting Rights Act Amendments,2006,Law,Voting,Expansion,-0.5899537819555233,-0.7578058263669254
+Executive Order 13087,1998,ExecOrder,LGBTQ+,Expansion,0.5548597874364755,-0.4566388402236234
+"Don't Ask, Don't Tell",1993,Law,LGBTQ+,Reversal,0.04399370671260781,-0.2597912900774765
+EO 14076: Protecting Access to Reproductive Healthcare,2022,ExecOrder,Repro,Expansion,1.043682092596703,0.17940279609977444
+Developmental Disabilities Assistance and Bill of Rights Act,2000,Law,Disability,Expansion,-1.1465165846636516,0.3232597480714416
+Ticket to Work and Work Incentives Improvement Act,1999,Law,Disability,Expansion,-1.5984830871932818,0.5790380083833644
+Global Change Research Act,1990,Law,Environment,Expansion,-0.8932067003273305,-0.4002392509157665
+Bail Reform Act,1984,Law,Justice,Reversal,-0.9429725581702219,0.44210305017168244
+USA PATRIOT Act,2001,Law,Justice,Reversal,-0.8208732683012648,0.41077552607484724
+EO 13107: Human Rights Treaties Implementation,1998,ExecOrder,Justice,Expansion,-0.006323741255663567,-0.21690903747305376
+"Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA)",1980,Law,Environment,Landmark,-0.7488212698999615,-0.871296540628677
+Energy Policy Act,2005,Law,Environment,Expansion,-0.7489801862534369,-0.869938073611015
+Executive Order 14008: Tackling the Climate Crisis,2021,ExecOrder,Environment,Expansion,0.5162023334076056,-1.2532329341035697
+Assistive Technology Act,1998,Law,Disability,Expansion,-1.0219934822444603,0.26074669113899485
+Fair Housing Amendments Act,1988,Law,Disability,Expansion,-1.3982165638534103,0.20512718555698414
+Title X Family Planning Program,1970,Law,Repro,Expansion,-0.08986811891878684,0.6080236921382157
+EO 13988: Gender Identity/Orientation Discrimination,2021,ExecOrder,LGBTQ+,Expansion,1.0393740108714837,-0.8742545545426715
+For the People Act,2019,Law,Voting,Proposed,-0.35922718351491106,-0.9991315895358976
+Freedom to Vote Act,2021,Law,Voting,Proposed,-0.0038385398271866124,-0.8027231809067498
+California v. Texas,2021,Court,LGBTQ+,Expansion,1.1874434655469945,-0.008906641615636953
+EO 14075: Advancing LGBTQI+ Equality,2022,ExecOrder,LGBTQ+,Expansion,1.110639536123432,-0.40450828216634815
+Death in Custody Reporting Act,2014,Law,Justice,Expansion,-0.39395221388807145,0.09251568793428167
+Juvenile Justice and Delinquency Prevention Act,1974,Law,Justice,Landmark,-0.4858421939816731,0.6638594333046695
+EO 14079: Securing Access to Reproductive and Other Healthcare Services,2022,ExecOrder,Repro,Expansion,1.043682092596703,0.17940279609977444
+Workforce Innovation and Opportunity Act,2014,Law,Disability,Expansion,-0.8055847531364813,0.1739993311951405
+Montreal Protocol Implementation Act,1988,Law,Environment,Expansion,-0.9485721733767397,-0.4950646400153424
+EO 13834: Efficient Federal Operations,2018,ExecOrder,Environment,Reversal,0.4013672176222476,-0.88519365226039
+EO 14019: Promoting Access to Voting,2021,ExecOrder,Voting,Expansion,0.6001986619132004,-1.1988952662579395
+GLAD v. United States,2010,Court,LGBTQ+,Expansion,1.0482051364544043,0.6383388153513044
+EO 13672: Prohibiting Discrimination,2014,ExecOrder,LGBTQ+,Expansion,0.7712685165444546,-0.5433862001674777
+Police Accountability Act,2020,Law,Justice,Proposed,-0.14147910796244734,0.7835076301063569
+George Floyd Justice in Policing Act,2021,Law,Justice,Proposed,-0.12584671956104226,-0.2383526664409121
+Title IX Final Rule,2020,Law,Repro,Reversal,0.3527469772029626,1.12768890562191
+Biden HHS Guidance on Emergency Abortions,2022,ExecOrder,Repro,Expansion,1.043682092596703,0.17940279609977444
+Section 508 Amendment (Tech Accessibility),1998,Law,Disability,Expansion,-1.0219934822444603,0.26074669113899485
+ADA Integration Mandate Enforcement,2012,Court,Disability,Expansion,-0.17758134543866297,1.5554746715945256
+EO 14096: Revitalizing Environmental Justice,2023,ExecOrder,Environment,Expansion,0.3931531314821197,-1.6931253502001693
+Federal Election Campaign Act,1971,Law,Voting,Landmark,-0.5894862009794247,-0.7587230413310144
+Bipartisan Campaign Reform Act (McCain–Feingold),2002,Law,Voting,Expansion,-0.5899450249464628,-0.7586504872794297
+Executive Order 13985: Equity Across Federal Government,2021,ExecOrder,LGBTQ+,Expansion,1.0393740108714837,-0.8742545545426715
+EO 14092: Clemency and Second Chances,2022,ExecOrder,Justice,Expansion,0.549456007431293,-0.16477847941577853
+Violent Crime Control and Law Enforcement Act,1994,Law,Justice,Reversal,-0.6747331417904178,0.5342754167794609
+EO 13809: Rescinding DOJ Consent Decrees,2017,ExecOrder,Justice,Reversal,0.37469696991245816,-0.714128742192279
+EO 14087: Data Protections for Reproductive Health,2022,ExecOrder,Repro,Expansion,1.043682092596703,0.17940279609977444
+Every Student Succeeds Act (with IDEA references),2015,Law,Disability,Expansion,-0.7463088277345435,0.03161914475920309
+21st Century Cures Act,2016,Law,Disability,Expansion,-0.8610191187324239,0.972466155861196
+Clean Power Plan,2015,ExecOrder,Environment,Expansion,0.30737276448251405,-1.0647447661643132
+Affordable Clean Energy Rule,2019,ExecOrder,Environment,Reversal,0.16081368971988116,-1.4496413427327175
+EO 13693: Planning for Sustainability,2015,ExecOrder,Environment,Expansion,0.30737276448251405,-1.0647447661643132
+EO 14021: Preventing and Combating Discrimination,2021,ExecOrder,LGBTQ+,Expansion,1.0393740108714837,-0.8742545545426715
