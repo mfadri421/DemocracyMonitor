@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Legal Events Analysis Dashboard</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        iframe { width: 100%; height: 800px; border: none; }
+        img { max-width: 100%; height: auto; display: block; margin: 20px auto; }
+        .container { margin-bottom: 40px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Legal Events Analysis Dashboard</h1>
+        <p>This webpage presents an analysis of legal events, including a similarity map using Multiple Correspondence Analysis (MCA) and insights into contributing variables.</p>
+    </div>
+
+    <div class="container">
+        <h2>Interactive MCA Dashboard</h2>
+        <p>Explore the legal events similarity map with filtering options and an explainer:</p>
+        <iframe src="legal_events_dashboard.html"></iframe>
+    </div>
+
+    <div class="container">
+        <h2>MCA Variable Contributions</h2>
+        <p>This plot shows how much each variable (year, type, domain) contributes to the first two dimensions of the MCA:</p>
+        <img src="mca_variable_contributions.png" alt="MCA Variable Contributions Plot">
+    </div>
+
+    <!-- You can add more sections here for the time-series plot, methodology, etc. -->
+
+</body>
+</html>
