@@ -2,34 +2,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Legal Events Analysis Dashboard</title>
+    <title>Legal Events Analysis Dashboard (New)</title>
+    <link rel="stylesheet" href="style_new.css"> <!-- Link to the new CSS file -->
     <style>
         body { font-family: sans-serif; margin: 20px; }
         h1, h2 { color: #333; }
-        iframe { width: 100%; height: 800px; border: none; }
+        /* iframe { width: 100%; height: 800px; border: none; } Removed iframe */
         img { max-width: 100%; height: auto; display: block; margin: 20px auto; }
         .container { margin-bottom: 40px; }
+        #mca-map-image { width: 100%; height: auto; } /* Style for the map image */
+        #domain-select { margin-bottom: 10px; padding: 8px; font-size: 16px; } /* Style for the dropdown */
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Legal Events Analysis Dashboard</h1>
+        <h1>Legal Events Analysis Dashboard (New Version)</h1>
         <p>This webpage presents an analysis of legal events, including a similarity map using Multiple Correspondence Analysis (MCA) and insights into contributing variables.</p>
     </div>
 
     <div class="container">
-        <h2>Interactive MCA Dashboard</h2>
-        <p>Explore the legal events similarity map with filtering options and an explainer:</p>
-        <iframe src="legal_events_dashboard.html"></iframe>
+        <h2>Legal Events Similarity Map</h2>
+        <p>Select a domain to view its specific MCA map:</p>
+        <select id="domain-select"></select> <!-- Domain dropdown -->
+        <img id="mca-map-image" src="" alt="MCA Map"> <!-- MCA map image -->
     </div>
 
-    <div class="container">
-        <h2>Cumulative Changes in Democratic Rights</h2>
-        <p>Explore the legal events similarity map with filtering options and an explainer:</p>
-        <iframe src="legal_events_time_series (1).html"></iframe>
-    </div>
-    
     <div class="container">
         <h2>MCA Variable Contributions</h2>
         <p>This plot shows how much each variable (year, type, domain) contributes to the first two dimensions of the MCA:</p>
@@ -38,5 +36,178 @@
 
     <!-- You can add more sections here for the time-series plot, methodology, etc. -->
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const domainSelect = document.getElementById('domain-select');
+    const mcaMapImage = document.getElementById('mca-map-image');
+    const domains = ['Voting', 'Repro', 'LGBTQ+', 'Justice', 'Disability', 'Environment']; // Placeholder for domains list
+
+    // Populate the domain select dropdown
+    let optionsHtml = '<option value="All">All Domains</option>';
+    domains.forEach(domain => {
+        optionsHtml += `<option value="${domain}">${domain}</option>`;
+    });
+    domainSelect.innerHTML = optionsHtml;
+
+    // Event listener for domain selection change
+    domainSelect.addEventListener('change', function() {
+        const selectedDomain = domainSelect.value;
+        let imageUrl = '';
+
+        if (selectedDomain !== 'All') {
+            // Construct the filename for the static image
+            // Replace spaces and + with underscores
+            const filename = `mca_map_${selectedDomain.replace(/\s/g, '_').replace(/\+/g, '')}.png`;
+            imageUrl = filename;
+        } else {
+            // For 'All' selection, set a default image or clear the source
+            // You might want a separate 'overall' MCA map image
+            imageUrl = ''; // Or set to a default image path if available
+        }
+
+        // Update the image source
+        mcaMapImage.src = imageUrl;
+
+        // Optional: Update alt text
+        mcaMapImage.alt = selectedDomain === 'All' ? 'Overall MCA Map' : `MCA Map for ${selectedDomain} Domain`;
+
+        // Note: Explainer update logic will be added in a subsequent step
+    });
+
+    // Trigger the change event on page load to display the initial map (if 'All' shows a default)
+    // Or if the first domain should be shown initially, set domainSelect.value
+    domainSelect.dispatchEvent(new Event('change'));
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const domainSelect = document.getElementById('domain-select');
+    const eventSelect = document.getElementById('event-select');
+    const mcaMapImage = document.getElementById('mca-map-image');
+    const explainerTextDiv = document.getElementById('explainer-text');
+
+    const domains = ["Voting", "Repro", "LGBTQ+", "Justice", "Disability", "Environment"]; // Placeholder for domains list
+    const domainEventsMap = {"Disability": ["Americans with Disabilities Act", "ADA Amendments Act", "Individuals with Disabilities Education Act", "Voting Accessibility for the Elderly and Handicapped Act", "Air Carrier Access Act", "Rehabilitation Act", "Telecommunications Act", "Developmental Disabilities Assistance and Bill of Rights Act", "Ticket to Work and Work Incentives Improvement Act", "Assistive Technology Act", "Fair Housing Amendments Act", "Workforce Innovation and Opportunity Act", "Section 508 Amendment (Tech Accessibility)", "ADA Integration Mandate Enforcement", "Every Student Succeeds Act (with IDEA references)", "21st Century Cures Act"], "Environment": ["Clean Air Act", "Clean Water Act", "Endangered Species Act", "National Environmental Policy Act", "Paris Agreement Reentry", "Inflation Reduction Act", "Global Change Research Act", "Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA)", "Energy Policy Act", "Executive Order 14008: Tackling the Climate Crisis", "Montreal Protocol Implementation Act", "EO 13834: Efficient Federal Operations", "EO 14096: Revitalizing Environmental Justice", "Clean Power Plan", "Affordable Clean Energy Rule", "EO 13693: Planning for Sustainability"], "Justice": ["Fair Sentencing Act", "First Step Act", "Civil Rights Act of 1991", "EO 14074", "Milliken v. Bradley", "Plyler v. Doe", "Sentencing Reform Act", "EO 13166: Improving Access to Services for Persons with Limited English Proficiency", "Omnibus Crime Control and Safe Streets Act", "Crime Control Act", "Violence Against Women Act", "Second Chance Act", "Bail Reform Act", "USA PATRIOT Act", "EO 13107: Human Rights Treaties Implementation", "Death in Custody Reporting Act", "Juvenile Justice and Delinquency Prevention Act", "Police Accountability Act", "George Floyd Justice in Policing Act", "EO 14092: Clemency and Second Chances", "Violent Crime Control and Law Enforcement Act", "EO 13809: Rescinding DOJ Consent Decrees"], "LGBTQ+": ["Lawrence v. Texas", "United States v. Windsor", "Obergefell v. Hodges", "Bostock v. Clayton County", "Respect for Marriage Act", "EO 13672", "EO 13988: Preventing Discrimination on Basis of Gender Identity", "Matthew Shepard and James Byrd Jr. Hate Crimes Prevention Act", "Don't Ask, Don't Tell Repeal Act", "EEOC v. Harris Funeral Homes", "EO 14004: Enabling All Qualified Americans to Serve", "Executive Order 13087", "Don't Ask, Don't Tell", "EO 13988: Gender Identity/Orientation Discrimination", "California v. Texas", "EO 14075: Advancing LGBTQI+ Equality", "GLAD v. United States", "EO 13672: Prohibiting Discrimination", "Executive Order 13985: Equity Across Federal Government", "EO 14021: Preventing and Combating Discrimination"], "Repro": ["Roe v. Wade", "Planned Parenthood v. Casey", "Hyde Amendment", "Gonzales v. Carhart", "Dobbs v. Jackson Women\u2019s Health", "Whole Woman\u2019s Health v. Hellerstedt", "June Medical Services v. Russo", "Freedom of Access to Clinic Entrances Act", "EO 14076: Protecting Access to Reproductive Healthcare", "Title X Family Planning Program", "EO 14079: Securing Access to Reproductive and Other Healthcare Services", "Title IX Final Rule", "Biden HHS Guidance on Emergency Abortions", "EO 14087: Data Protections for Reproductive Health"], "Voting": ["Voting Rights Act", "National Voter Registration Act", "Help America Vote Act", "Shelby County v. Holder", "Brnovich v. DNC", "John Lewis Voting Rights Advancement Act", "EO 14019", "Uniformed and Overseas Citizens Absentee Voting Act", "EO 13799: Presidential Advisory Commission on Election Integrity", "EO 13985: Advancing Racial Equity", "Voting Rights Act Amendments", "For the People Act", "Freedom to Vote Act", "EO 14019: Promoting Access to Voting", "Federal Election Campaign Act", "Bipartisan Campaign Reform Act (McCain\u2013Feingold)"], "All": ["Voting Rights Act", "National Voter Registration Act", "Help America Vote Act", "Shelby County v. Holder", "Brnovich v. DNC", "John Lewis Voting Rights Advancement Act", "EO 14019", "Roe v. Wade", "Planned Parenthood v. Casey", "Hyde Amendment", "Gonzales v. Carhart", "Dobbs v. Jackson Women\u2019s Health", "Lawrence v. Texas", "United States v. Windsor", "Obergefell v. Hodges", "Bostock v. Clayton County", "Respect for Marriage Act", "EO 13672", "Fair Sentencing Act", "First Step Act", "Civil Rights Act of 1991", "EO 14074", "Milliken v. Bradley", "Plyler v. Doe", "Americans with Disabilities Act", "ADA Amendments Act", "Individuals with Disabilities Education Act", "Voting Accessibility for the Elderly and Handicapped Act", "Clean Air Act", "Clean Water Act", "Endangered Species Act", "National Environmental Policy Act", "Paris Agreement Reentry", "Inflation Reduction Act", "Uniformed and Overseas Citizens Absentee Voting Act", "EO 13799: Presidential Advisory Commission on Election Integrity", "EO 13985: Advancing Racial Equity", "Whole Woman\u2019s Health v. Hellerstedt", "June Medical Services v. Russo", "EO 13988: Preventing Discrimination on Basis of Gender Identity", "Matthew Shepard and James Byrd Jr. Hate Crimes Prevention Act", "Sentencing Reform Act", "EO 13166: Improving Access to Services for Persons with Limited English Proficiency", "Air Carrier Access Act", "Freedom of Access to Clinic Entrances Act", "Don't Ask, Don't Tell Repeal Act", "EEOC v. Harris Funeral Homes", "EO 14004: Enabling All Qualified Americans to Serve", "Omnibus Crime Control and Safe Streets Act", "Crime Control Act", "Violence Against Women Act", "Second Chance Act", "Rehabilitation Act", "Telecommunications Act", "Voting Rights Act Amendments", "Executive Order 13087", "Don't Ask, Don't Tell", "EO 14076: Protecting Access to Reproductive Healthcare", "Developmental Disabilities Assistance and Bill of Rights Act", "Ticket to Work and Work Incentives Improvement Act", "Global Change Research Act", "Bail Reform Act", "USA PATRIOT Act", "EO 13107: Human Rights Treaties Implementation", "Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA)", "Energy Policy Act", "Executive Order 14008: Tackling the Climate Crisis", "Assistive Technology Act", "Fair Housing Amendments Act", "Title X Family Planning Program", "EO 13988: Gender Identity/Orientation Discrimination", "For the People Act", "Freedom to Vote Act", "California v. Texas", "EO 14075: Advancing LGBTQI+ Equality", "Death in Custody Reporting Act", "Juvenile Justice and Delinquency Prevention Act", "EO 14079: Securing Access to Reproductive and Other Healthcare Services", "Workforce Innovation and Opportunity Act", "Montreal Protocol Implementation Act", "EO 13834: Efficient Federal Operations", "EO 14019: Promoting Access to Voting", "GLAD v. United States", "EO 13672: Prohibiting Discrimination", "Police Accountability Act", "George Floyd Justice in Policing Act", "Title IX Final Rule", "Biden HHS Guidance on Emergency Abortions", "Section 508 Amendment (Tech Accessibility)", "ADA Integration Mandate Enforcement", "EO 14096: Revitalizing Environmental Justice", "Federal Election Campaign Act", "Bipartisan Campaign Reform Act (McCain\u2013Feingold)", "Executive Order 13985: Equity Across Federal Government", "EO 14092: Clemency and Second Chances", "Violent Crime Control and Law Enforcement Act", "EO 13809: Rescinding DOJ Consent Decrees", "EO 14087: Data Protections for Reproductive Health", "Every Student Succeeds Act (with IDEA references)", "21st Century Cures Act", "Clean Power Plan", "Affordable Clean Energy Rule", "EO 13693: Planning for Sustainability", "EO 14021: Preventing and Combating Discrimination"]}; // Placeholder for domain to events mapping
+    const explainerData = [{"id": "Voting Rights Act", "year": 1965, "type": "Law", "domain": "Voting", "annotation": "Landmark"}, {"id": "National Voter Registration Act", "year": 1993, "type": "Law", "domain": "Voting", "annotation": "Expansion"}, {"id": "Help America Vote Act", "year": 2002, "type": "Law", "domain": "Voting", "annotation": "Expansion"}, {"id": "Shelby County v. Holder", "year": 2013, "type": "Court", "domain": "Voting", "annotation": "Reversal"}, {"id": "Brnovich v. DNC", "year": 2021, "type": "Court", "domain": "Voting", "annotation": "Reversal"}, {"id": "John Lewis Voting Rights Advancement Act", "year": 2021, "type": "Law", "domain": "Voting", "annotation": "Proposed"}, {"id": "EO 14019", "year": 2021, "type": "ExecOrder", "domain": "Voting", "annotation": "Expansion"}, {"id": "Roe v. Wade", "year": 1973, "type": "Court", "domain": "Repro", "annotation": "Landmark"}, {"id": "Planned Parenthood v. Casey", "year": 1992, "type": "Court", "domain": "Repro", "annotation": "Expansion"}, {"id": "Hyde Amendment", "year": 1976, "type": "Law", "domain": "Repro", "annotation": "Reversal"}, {"id": "Gonzales v. Carhart", "year": 2007, "type": "Court", "domain": "Repro", "annotation": "Reversal"}, {"id": "Dobbs v. Jackson Women\u2019s Health", "year": 2022, "type": "Court", "domain": "Repro", "annotation": "Reversal"}, {"id": "Lawrence v. Texas", "year": 2003, "type": "Court", "domain": "LGBTQ+", "annotation": "Landmark"}, {"id": "United States v. Windsor", "year": 2013, "type": "Court", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "Obergefell v. Hodges", "year": 2015, "type": "Court", "domain": "LGBTQ+", "annotation": "Landmark"}, {"id": "Bostock v. Clayton County", "year": 2020, "type": "Court", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "Respect for Marriage Act", "year": 2022, "type": "Law", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "EO 13672", "year": 2014, "type": "ExecOrder", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "Fair Sentencing Act", "year": 2010, "type": "Law", "domain": "Justice", "annotation": "Expansion"}, {"id": "First Step Act", "year": 2018, "type": "Law", "domain": "Justice", "annotation": "Expansion"}, {"id": "Civil Rights Act of 1991", "year": 1991, "type": "Law", "domain": "Justice", "annotation": "Expansion"}, {"id": "EO 14074", "year": 2022, "type": "ExecOrder", "domain": "Justice", "annotation": "Expansion"}, {"id": "Milliken v. Bradley", "year": 1974, "type": "Court", "domain": "Justice", "annotation": "Reversal"}, {"id": "Plyler v. Doe", "year": 1982, "type": "Court", "domain": "Justice", "annotation": "Expansion"}, {"id": "Americans with Disabilities Act", "year": 1990, "type": "Law", "domain": "Disability", "annotation": "Landmark"}, {"id": "ADA Amendments Act", "year": 2008, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Individuals with Disabilities Education Act", "year": 2004, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Voting Accessibility for the Elderly and Handicapped Act", "year": 1984, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Clean Air Act", "year": 1970, "type": "Law", "domain": "Environment", "annotation": "Landmark"}, {"id": "Clean Water Act", "year": 1972, "type": "Law", "domain": "Environment", "annotation": "Landmark"}, {"id": "Endangered Species Act", "year": 1973, "type": "Law", "domain": "Environment", "annotation": "Landmark"}, {"id": "National Environmental Policy Act", "year": 1969, "type": "Law", "domain": "Environment", "annotation": "Landmark"}, {"id": "Paris Agreement Reentry", "year": 2021, "type": "ExecOrder", "domain": "Environment", "annotation": "Expansion"}, {"id": "Inflation Reduction Act", "year": 2022, "type": "Law", "domain": "Environment", "annotation": "Expansion"}, {"id": "Uniformed and Overseas Citizens Absentee Voting Act", "year": 1986, "type": "Law", "domain": "Voting", "annotation": "Expansion"}, {"id": "EO 13799: Presidential Advisory Commission on Election Integrity", "year": 2017, "type": "ExecOrder", "domain": "Voting", "annotation": "Reversal"}, {"id": "EO 13985: Advancing Racial Equity", "year": 2021, "type": "ExecOrder", "domain": "Voting", "annotation": "Expansion"}, {"id": "Whole Woman\u2019s Health v. Hellerstedt", "year": 2016, "type": "Court", "domain": "Repro", "annotation": "Expansion"}, {"id": "June Medical Services v. Russo", "year": 2020, "type": "Court", "domain": "Repro", "annotation": "Expansion"}, {"id": "EO 13988: Preventing Discrimination on Basis of Gender Identity", "year": 2021, "type": "ExecOrder", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "Matthew Shepard and James Byrd Jr. Hate Crimes Prevention Act", "year": 2009, "type": "Law", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "Sentencing Reform Act", "year": 1984, "type": "Law", "domain": "Justice", "annotation": "Landmark"}, {"id": "EO 13166: Improving Access to Services for Persons with Limited English Proficiency", "year": 2000, "type": "ExecOrder", "domain": "Justice", "annotation": "Expansion"}, {"id": "Air Carrier Access Act", "year": 1986, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Freedom of Access to Clinic Entrances Act", "year": 1994, "type": "Law", "domain": "Repro", "annotation": "Expansion"}, {"id": "Don't Ask, Don't Tell Repeal Act", "year": 2010, "type": "Law", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "EEOC v. Harris Funeral Homes", "year": 2018, "type": "Court", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "EO 14004: Enabling All Qualified Americans to Serve", "year": 2021, "type": "ExecOrder", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "Omnibus Crime Control and Safe Streets Act", "year": 1968, "type": "Law", "domain": "Justice", "annotation": "Landmark"}, {"id": "Crime Control Act", "year": 1990, "type": "Law", "domain": "Justice", "annotation": "Expansion"}, {"id": "Violence Against Women Act", "year": 1994, "type": "Law", "domain": "Justice", "annotation": "Expansion"}, {"id": "Second Chance Act", "year": 2007, "type": "Law", "domain": "Justice", "annotation": "Expansion"}, {"id": "Rehabilitation Act", "year": 1973, "type": "Law", "domain": "Disability", "annotation": "Landmark"}, {"id": "Telecommunications Act", "year": 1996, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Voting Rights Act Amendments", "year": 2006, "type": "Law", "domain": "Voting", "annotation": "Expansion"}, {"id": "Executive Order 13087", "year": 1998, "type": "ExecOrder", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "Don't Ask, Don't Tell", "year": 1993, "type": "Law", "domain": "LGBTQ+", "annotation": "Reversal"}, {"id": "EO 14076: Protecting Access to Reproductive Healthcare", "year": 2022, "type": "ExecOrder", "domain": "Repro", "annotation": "Expansion"}, {"id": "Developmental Disabilities Assistance and Bill of Rights Act", "year": 2000, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Ticket to Work and Work Incentives Improvement Act", "year": 1999, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Global Change Research Act", "year": 1990, "type": "Law", "domain": "Environment", "annotation": "Expansion"}, {"id": "Bail Reform Act", "year": 1984, "type": "Law", "domain": "Justice", "annotation": "Reversal"}, {"id": "USA PATRIOT Act", "year": 2001, "type": "Law", "domain": "Justice", "annotation": "Reversal"}, {"id": "EO 13107: Human Rights Treaties Implementation", "year": 1998, "type": "ExecOrder", "domain": "Justice", "annotation": "Expansion"}, {"id": "Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA)", "year": 1980, "type": "Law", "domain": "Environment", "annotation": "Landmark"}, {"id": "Energy Policy Act", "year": 2005, "type": "Law", "domain": "Environment", "annotation": "Expansion"}, {"id": "Executive Order 14008: Tackling the Climate Crisis", "year": 2021, "type": "ExecOrder", "domain": "Environment", "annotation": "Expansion"}, {"id": "Assistive Technology Act", "year": 1998, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Fair Housing Amendments Act", "year": 1988, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Title X Family Planning Program", "year": 1970, "type": "Law", "domain": "Repro", "annotation": "Expansion"}, {"id": "EO 13988: Gender Identity/Orientation Discrimination", "year": 2021, "type": "ExecOrder", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "For the People Act", "year": 2019, "type": "Law", "domain": "Voting", "annotation": "Proposed"}, {"id": "Freedom to Vote Act", "year": 2021, "type": "Law", "domain": "Voting", "annotation": "Proposed"}, {"id": "California v. Texas", "year": 2021, "type": "Court", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "EO 14075: Advancing LGBTQI+ Equality", "year": 2022, "type": "ExecOrder", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "Death in Custody Reporting Act", "year": 2014, "type": "Law", "domain": "Justice", "annotation": "Expansion"}, {"id": "Juvenile Justice and Delinquency Prevention Act", "year": 1974, "type": "Law", "domain": "Justice", "annotation": "Landmark"}, {"id": "EO 14079: Securing Access to Reproductive and Other Healthcare Services", "year": 2022, "type": "ExecOrder", "domain": "Repro", "annotation": "Expansion"}, {"id": "Workforce Innovation and Opportunity Act", "year": 2014, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Montreal Protocol Implementation Act", "year": 1988, "type": "Law", "domain": "Environment", "annotation": "Expansion"}, {"id": "EO 13834: Efficient Federal Operations", "year": 2018, "type": "ExecOrder", "domain": "Environment", "annotation": "Reversal"}, {"id": "EO 14019: Promoting Access to Voting", "year": 2021, "type": "ExecOrder", "domain": "Voting", "annotation": "Expansion"}, {"id": "GLAD v. United States", "year": 2010, "type": "Court", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "EO 13672: Prohibiting Discrimination", "year": 2014, "type": "ExecOrder", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "Police Accountability Act", "year": 2020, "type": "Law", "domain": "Justice", "annotation": "Proposed"}, {"id": "George Floyd Justice in Policing Act", "year": 2021, "type": "Law", "domain": "Justice", "annotation": "Proposed"}, {"id": "Title IX Final Rule", "year": 2020, "type": "Law", "domain": "Repro", "annotation": "Reversal"}, {"id": "Biden HHS Guidance on Emergency Abortions", "year": 2022, "type": "ExecOrder", "domain": "Repro", "annotation": "Expansion"}, {"id": "Section 508 Amendment (Tech Accessibility)", "year": 1998, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "ADA Integration Mandate Enforcement", "year": 2012, "type": "Court", "domain": "Disability", "annotation": "Expansion"}, {"id": "EO 14096: Revitalizing Environmental Justice", "year": 2023, "type": "ExecOrder", "domain": "Environment", "annotation": "Expansion"}, {"id": "Federal Election Campaign Act", "year": 1971, "type": "Law", "domain": "Voting", "annotation": "Landmark"}, {"id": "Bipartisan Campaign Reform Act (McCain\u2013Feingold)", "year": 2002, "type": "Law", "domain": "Voting", "annotation": "Expansion"}, {"id": "Executive Order 13985: Equity Across Federal Government", "year": 2021, "type": "ExecOrder", "domain": "LGBTQ+", "annotation": "Expansion"}, {"id": "EO 14092: Clemency and Second Chances", "year": 2022, "type": "ExecOrder", "domain": "Justice", "annotation": "Expansion"}, {"id": "Violent Crime Control and Law Enforcement Act", "year": 1994, "type": "Law", "domain": "Justice", "annotation": "Reversal"}, {"id": "EO 13809: Rescinding DOJ Consent Decrees", "year": 2017, "type": "ExecOrder", "domain": "Justice", "annotation": "Reversal"}, {"id": "EO 14087: Data Protections for Reproductive Health", "year": 2022, "type": "ExecOrder", "domain": "Repro", "annotation": "Expansion"}, {"id": "Every Student Succeeds Act (with IDEA references)", "year": 2015, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "21st Century Cures Act", "year": 2016, "type": "Law", "domain": "Disability", "annotation": "Expansion"}, {"id": "Clean Power Plan", "year": 2015, "type": "ExecOrder", "domain": "Environment", "annotation": "Expansion"}, {"id": "Affordable Clean Energy Rule", "year": 2019, "type": "ExecOrder", "domain": "Environment", "annotation": "Reversal"}, {"id": "EO 13693: Planning for Sustainability", "year": 2015, "type": "ExecOrder", "domain": "Environment", "annotation": "Expansion"}, {"id": "EO 14021: Preventing and Combating Discrimination", "year": 2021, "type": "ExecOrder", "domain": "LGBTQ+", "annotation": "Expansion"}]; // Placeholder for explainer data
+
+    // Populate the domain select dropdown
+    let domainOptionsHtml = '<option value="All">All Domains</option>';
+    domains.forEach(domain => {
+        domainOptionsHtml += `<option value="${domain}">${domain}</option>`;
+    });
+    domainSelect.innerHTML = domainOptionsHtml;
+
+    // Function to update the event select dropdown options
+    function updateEventOptions(selectedDomain) {
+        const events = domainEventsMap[selectedDomain] || [];
+        let eventOptionsHtml = '<option value="All">All Events</option>';
+        events.forEach(event => {
+            eventOptionsHtml += `<option value="${event}">${event}</option>`;
+        });
+        eventSelect.innerHTML = eventOptionsHtml;
+    }
+
+    // Function to generate and display the explainer text
+    function updateExplainer(selectedDomain, selectedEvent) {
+        let explanation = "Select a domain or legal event to see an explanation.";
+
+        // Basic MCA axis explanation (can be pre-defined or calculated and passed here)
+        // Note: Actual MCA contribution data is not passed to JS in this version.
+        let mcaExplanation = "**MCA Axis Contributions:**<br>" +
+                             "Information about how Year, Type, and Domain contribute to the MCA axes.<br>" +
+                             "(Placeholder - You can add static text here based on the mca_variable_contributions.png)"; // Placeholder
+
+        if (selectedEvent !== 'All') {
+            // Find the selected event data
+            const eventInfo = explainerData.find(event => event.id === selectedEvent);
+            if (eventInfo) {
+                explanation = `**Legal Event:** ${eventInfo.id}<br>
+                               **Year:** ${eventInfo.year}<br>
+                               **Type:** ${eventInfo.type}<br>
+                               **Domain:** ${eventInfo.domain}<br>
+                               **Annotation:** ${eventInfo.annotation}<br>`;
+                // Add more detailed explanation based on annotation or type if available
+                if (eventInfo.annotation === 'Expansion') {
+                    explanation += "This event likely expanded rights in its domain.";
+                } else if (eventInfo.annotation === 'Reversal') {
+                    explanation += "This event likely reversed or restricted rights in its domain.";
+                } else if (eventInfo.annotation === 'Landmark') {
+                    explanation += "This was a significant event impacting rights in its domain.";
+                }
+            } else {
+                 explanation = `Could not find information for event: ${selectedEvent}`;
+            }
+             // Prepend MCA explanation to event explanation
+            explanation = mcaExplanation + "<br><br>" + explanation;
+
+        } else if (selectedDomain !== 'All') {
+            // Provide a summary explanation for a domain
+            // You'd need domain summary data passed here or calculate it in JS
+             explanation = `**Domain:** ${selectedDomain}<br>
+                            Summary of impact on rights in this domain based on available data annotations.<br>
+                            (Placeholder - You can add static text here or calculate summary data and pass it)`; // Placeholder
+             // Prepend MCA explanation to domain explanation
+            explanation = mcaExplanation + "<br><br>" + explanation;
+
+        } else {
+             // Default explanation when 'All' is selected for both
+             explanation = mcaExplanation + "<br><br>" + explanation;
+        }
+
+
+        explainerTextDiv.innerHTML = explanation;
+    }
+
+
+    // Event listener for domain selection change
+    domainSelect.addEventListener('change', function() {
+        const selectedDomain = domainSelect.value;
+        let imageUrl = '';
+
+        if (selectedDomain !== 'All') {
+            // Construct the filename for the static image
+            // Replace spaces and + with underscores
+            const filename = `mca_map_${selectedDomain.replace(/\s/g, '_').replace(/\+/g, '')}.png`;
+            imageUrl = filename;
+        } else {
+            // For 'All' selection, set a default image or clear the source
+            // You might want a separate 'overall' MCA map image
+            imageUrl = ''; // Or set to a default image path if available
+        }
+
+        // Update the image source
+        mcaMapImage.src = imageUrl;
+
+        // Optional: Update alt text
+        mcaMapImage.alt = selectedDomain === 'All' ? 'Overall MCA Map' : `MCA Map for ${selectedDomain} Domain`;
+
+        // Update event options based on the selected domain
+        updateEventOptions(selectedDomain);
+
+        // Update the explainer text (pass 'All' for event initially)
+        updateExplainer(selectedDomain, eventSelect.value); // Use the current event value after updating options
+    });
+
+
+     // Event listener for event selection change
+    eventSelect.addEventListener('change', function() {
+        const selectedDomain = domainSelect.value; // Get current domain selection
+        const selectedEvent = eventSelect.value;
+        // Update the explainer text
+        updateExplainer(selectedDomain, selectedEvent);
+         // Note: Image does NOT change based on event selection in this design
+    });
+
+
+    // Initial population and display
+    updateEventOptions(domainSelect.value); // Populate event options based on initial domain selection ('All')
+    updateExplainer(domainSelect.value, eventSelect.value); // Display initial explainer
+    // No need to trigger domain change event here as updateExplainer is called with initial values
+    // domainSelect.dispatchEvent(new Event('change')); // Removed this line
+
+});
+</script>
 </body>
 </html>
